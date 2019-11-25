@@ -1,4 +1,4 @@
-sudo: true
+sudo: required
 language: elixir
 git:
   depth: 3
