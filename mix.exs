@@ -25,12 +25,12 @@ defmodule SortedSet.MixProject do
 
   defp deps do
     [
-      {:rustler, "~> 0.18"},
-      {:ex_doc, "~> 0.19", only: [:dev], runtime: false},
-      {:benchee, "~> 0.13", only: [:dev]},
-      {:benchee_html, "~> 0.5", only: [:dev]},
-      {:stream_data, "~> 0.4", only: [:test]},
-      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false}
+      {:rustler, "~> 0.21.0"},
+      {:ex_doc, "~> 0.21.2", only: [:dev], runtime: false},
+      {:benchee, "~> 1.0", only: [:dev]},
+      {:benchee_html, "~> 1.0", only: [:dev]},
+      {:stream_data, "~> 0.4.3", only: [:test]},
+      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev], runtime: false}
     ]
   end
 
