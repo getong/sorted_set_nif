@@ -1,9 +1,19 @@
-sudo: false
+sudo: true
 language: elixir
 git:
   depth: 3
 env:
   - MIX_ENV=test
+  - RUSTUP_HOME=/usr/local/rustup
+  - CARGO_HOME=/usr/local/cargo
+  - PATH=/usr/local/cargo/bin:$PATH
+  - RUST_VERSION=1.39.0
+
+before_install:
+  - wget -c https://static.rust-lang.org/rustup/archive/1.20.2/x86_64-unknown-linux-gnu/rustup-init
+  - chmod +x rustup-init
+  - ./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION
+
 script:
   - mix test
 matrix:
@@ -11,24 +21,18 @@ matrix:
     - name: "Elixir 1.6.6 OTP 20.3.8"
       elixir: 1.6.6
       otp_release: 20.3.8
-      rust: stable
     - name: "Elixir 1.6.6 OTP 21.1.1"
       elixir: 1.6.6
       otp_release: 21.1.1
-      rust: stable
     - name: "Elixir 1.7.3 OTP 20.3.8"
       elixir: 1.7.3
       otp_release: 20.3.8
-      rust: stable
     - name: "Elixir 1.7.3 OTP 21.1.1"
       elixir: 1.7.3
       otp_release: 21.1.1
-      rust: stable
     - name: "Elixir 1.8.2 OTP 22.1.8"
       elixir: 1.8.2
       otp_release: 22.1.8
-      rust: stable
     - name: "Elixir 1.9.4 OTP 22.1.8"
       elixir: 1.9.4
       otp_release: 22.1.8
-      rust: stable
